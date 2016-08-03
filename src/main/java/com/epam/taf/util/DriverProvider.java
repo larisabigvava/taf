@@ -8,12 +8,13 @@ public class DriverProvider {
     public static WebDriver driver = null;
 
     public static WebDriver getDriver(String driverType){
+        DriverType type = DriverType.valueOf(driverType);
         if (driver == null){
-            switch (driverType){
-                case "ChromeDriver":
+            switch (type){
+                case ChromeDriver:
                     driver = new ChromeDriver();
                     break;
-                case "FirefoxDriver":
+                case FirefoxDriver:
                     driver = new FirefoxDriver();
                     break;
                 default:
