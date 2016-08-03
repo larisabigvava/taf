@@ -17,9 +17,6 @@ public class DriverProvider {
                 case FirefoxDriver:
                     driver = new FirefoxDriver();
                     break;
-                default:
-                    driver = new FirefoxDriver();
-                    break;
             }
         }
         return driver;
