@@ -14,6 +14,10 @@ public class SpamPage extends LogoutClass {
     private static final Logger LOGGER = LogManager.getRootLogger();
     private WebDriver driver;
 
+    /**
+     * Rename variable a_spam_full into smth like fullSpam
+     */
+
     @FindBy(xpath = "//div/span/a[contains(text(),'Spam (']")
     private WebElement a_spam_full;
 
