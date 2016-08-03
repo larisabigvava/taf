@@ -1,7 +1,6 @@
 package com.epam.taf;
 
-import com.epam.taf.page.BasePage;
-import com.epam.taf.page.LogoutPage;
+import com.epam.taf.page.*;
 import com.epam.taf.util.DriverProvider;
 import com.epam.taf.util.PropertyProvider;
 import org.openqa.selenium.WebDriver;
