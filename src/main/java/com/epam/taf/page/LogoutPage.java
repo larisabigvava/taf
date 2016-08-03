@@ -7,33 +7,32 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LogoutClass {
+public class LogoutPage extends BasePage{
     private static final Logger LOGGER = LogManager.getRootLogger();
-    private WebDriver driver;
 
     @FindBy(xpath = "//span[@class='gb_3a gbii']")
-    private WebElement account_icon;
+    private WebElement accountIcon;
 
     @FindBy(xpath = "//a[contains(text(), 'Sign out']")
-    private WebElement btn_logout;
+    private WebElement btnLogout;
 
     @FindBy(xpath = "//a[@id='account-chooser-link']")
-    private WebElement btn_signInWithADiffAcc;
+    private WebElement btnSignInWithADiffAcc;
 
     @FindBy(xpath = "//a[@id='account-chooser-add-account']")
-    private WebElement btn_addAccount;
+    private WebElement btnAddAccount;
 
-    public LogoutClass(WebDriver driver) {
-        this.driver = driver;
+    public LogoutPage(WebDriver driver) {
+        super(driver);
         PageFactory.initElements(this.driver, this);
     }
 
     private void clickSignInWithADifferentAcc(){
-        btn_signInWithADiffAcc.click();
+        btnSignInWithADiffAcc.click();
     }
 
     private void clickAddAccount(){
-        btn_addAccount.click();
+        btnAddAccount.click();
     }
 
     public LoginPage logout(){
@@ -45,10 +44,10 @@ public class LogoutClass {
         return new LoginPage(this.driver);
     }
     private void pressAccountIcon(){
-        account_icon.click();
+        accountIcon.click();
     }
 
     private void clickLogout(){
-        btn_logout.click();
+        btnLogout.click();
     }
 }

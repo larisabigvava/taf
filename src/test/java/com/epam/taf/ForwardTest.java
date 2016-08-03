@@ -1,24 +1,24 @@
 package com.epam.taf;
 
-import com.epam.taf.page.LoginPage;
+import com.epam.taf.page.BasePage;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class ForwardTest extends BaseTest{
-    private LoginPage loginPage;
+    private BasePage page;
 
     @BeforeClass
     public void setUp(){
-        loginPage = new LoginPage(driver);
+        page = new BasePage(driver);
     }
 
     @Test
     public void forwardTst(){
         driver.get(URL);
-        loginPage.login(LOGIN2, PASSWORD);
-        loginPage.goToInbox().goToSettingsPage().goToForwarding().addForwardingAddress(LOGIN3);
-        loginPage.logout();
-        loginPage.login(LOGIN3, PASSWORD);
+        page.getLoginPage().login(LOGIN2, PASSWORD);
+        page.getLoginPage().goToInbox().goToSettingsPage().goToForwarding().addForwardingAddress(LOGIN3);
+        logoutPage.logout();
+        page.getLoginPage().login(LOGIN3, PASSWORD);
         //TODO confirmation and asserts
     }
 }

@@ -7,46 +7,48 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class InboxPage extends LogoutClass{
+public class InboxPage extends BasePage{
     private static final Logger LOGGER = LogManager.getRootLogger();
     private WebDriver driver;
 
+    @FindBy(xpath = "//div[@role='menu']")
+    private WebElement settingsMenuList;
+
     @FindBy(xpath = "//div[@aria-label='Settings']")
-    private WebElement settings_icon;
+    private WebElement settingsIcon;
 
     @FindBy(xpath = "//[contains(text(), 'Settings')]")
     private WebElement settings;
 
     @FindBy(xpath = "//*[contains(text(), 'COMPOSE')]")
-    private WebElement btn_compose;
+    private WebElement btnCompose;
 
     @FindBy(xpath = "//textarea[@name='to']")
-    private WebElement to_whom;
+    private WebElement toWhom;
 
     @FindBy(xpath = "//div[@role='textbox']")
-    private WebElement text_path;
+    private WebElement textPath;
 
     @FindBy(xpath = "//*[contains(text(), 'Send')]")
-    private WebElement btn_send;
+    private WebElement btnSend;
 
     @FindBy(xpath = "//span[@role = 'checkbox']/div[@role='presentation']")
-    private WebElement letter_checkbox;
+    private WebElement letterCheckbox;
 
     @FindBy(xpath = "//div[@aria-label='Report spam']")
-    private WebElement btn_spam;
+    private WebElement btnSpam;
 
     public InboxPage(WebDriver driver) {
         super(driver);
-        this.driver = driver;
         PageFactory.initElements(this.driver, this);
     }
 
     private void checkLetters(){
-        letter_checkbox.click();
+        letterCheckbox.click();
     }
 
     private void clickSpam(){
-        btn_spam.click();
+        btnSpam.click();
     }
 
     public void markAsSpam(){
@@ -56,19 +58,19 @@ public class InboxPage extends LogoutClass{
     }
 
     private void clickCompose(){
-        btn_compose.click();
+        btnCompose.click();
     }
 
     private void setRecipient(String recipient){
-        to_whom.sendKeys(recipient);
+        toWhom.sendKeys(recipient);
     }
 
     private void setText(String text){
-        text_path.sendKeys(text);
+        textPath.sendKeys(text);
     }
 
     private void send(){
-        btn_send.click();
+        btnSend.click();
     }
 
     public void sendMessage(String recipient, String text){
@@ -80,7 +82,7 @@ public class InboxPage extends LogoutClass{
     }
 
     public SettingsPage goToSettingsPage(){
-        settings_icon.click();
+        settingsIcon.click();
         settings.click();
         return new SettingsPage(this.driver);
     }
@@ -88,4 +90,15 @@ public class InboxPage extends LogoutClass{
     public SpamPage goToSpamPage(){
         return new SpamPage(this.driver);
     }
+
+    public boolean isSettingsMenuDropDown(){
+        boolean result = false;
+        if (settingsMenuList.isDisplayed()){
+            result = true;
+        }
+        return result;
+    }
+
+
+
 }

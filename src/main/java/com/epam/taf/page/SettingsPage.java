@@ -7,9 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class SettingsPage extends LogoutClass {
+public class SettingsPage extends BasePage {
     private static final Logger LOGGER = LogManager.getRootLogger();
-    private WebDriver driver;
 
     @FindBy(xpath = "//div/a[contains(text(), 'Forwarding and POP/IMAP']")
     private WebElement forwarding;
@@ -19,7 +18,6 @@ public class SettingsPage extends LogoutClass {
 
     public SettingsPage(WebDriver driver) {
         super(driver);
-        this.driver = driver;
         PageFactory.initElements(this.driver, this);
     }
 

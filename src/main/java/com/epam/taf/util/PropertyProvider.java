@@ -1,4 +1,4 @@
-package com.epam.taf.properties;
+package com.epam.taf.util;
 
 import org.apache.commons.io.FilenameUtils;
 import java.io.File;
@@ -10,7 +10,7 @@ public class PropertyProvider {
 
     private static Properties loadProperties(String fileName) {
         String filePath = FilenameUtils.separatorsToSystem(
-                new File("").getAbsolutePath() + "\\src\\main\\java\\com\\epam\\taf\\resources\\"+ fileName + ".properties");
+                new File("").getAbsolutePath() + "\\src\\main\\java\\com\\epam\\taf\\resources\\"+ fileName + ".util");
         File localFile = new File(filePath);
         Properties properties = new Properties();
         if (!localFile.isDirectory()) {
@@ -20,7 +20,7 @@ public class PropertyProvider {
                 fis.close();
             } catch (IOException e) {
                 e.printStackTrace();
-                System.out.println("Exception during loading properties-file " + filePath);
+                System.out.println("Exception during loading util-file " + filePath);
             }
         }
         return properties;

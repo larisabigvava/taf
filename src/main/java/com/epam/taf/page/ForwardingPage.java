@@ -7,29 +7,27 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class ForwardingPage extends LogoutClass {
+public class ForwardingPage extends BasePage {
     private static final Logger LOGGER = LogManager.getRootLogger();
-    private WebDriver driver;
 
     @FindBy(xpath = "//input[@value='Add a forwarding address']")
-    private WebElement add_forwarding;
+    private WebElement addForwarding;
 
     @FindBy(xpath = "//div/div/input[@type='text']")
-    private WebElement input_address;
+    private WebElement inputAddress;
 
     @FindBy(xpath = "//button[@name='next']")
-    private WebElement next_btn;
+    private WebElement nextBtn;
 
     public ForwardingPage(WebDriver driver) {
         super(driver);
-        this.driver = driver;
         PageFactory.initElements(this.driver, this);
     }
 
     public void addForwardingAddress(String address){
-        add_forwarding.click();
-        input_address.sendKeys(address);
-        next_btn.click();
+        addForwarding.click();
+        inputAddress.sendKeys(address);
+        nextBtn.click();
         LOGGER.info("add as forwarding address "+address);
     }
 }

@@ -7,29 +7,27 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class ThemePage extends LogoutClass {
+public class ThemePage extends BasePage {
     private static final Logger LOGGER = LogManager.getRootLogger();
-    private WebDriver driver;
 
     @FindBy(xpath = "//div/a[contains(text(), 'Set Theme.')]")
-    private WebElement a_set_theme;
+    private WebElement setTheme;
 
     @FindBy(xpath = "//div[@bgid='custom-10']")
-    private WebElement beach_pic;
+    private WebElement beachPic;
 
     @FindBy(xpath = "//div[contains(text(), 'Save')]")
-    private WebElement save_btn;
+    private WebElement saveBtn;
 
     public ThemePage(WebDriver driver) {
         super(driver);
-        this.driver = driver;
         PageFactory.initElements(this.driver, this);
     }
 
     public void setTheme(){
-        a_set_theme.click();
-        beach_pic.click();
-        save_btn.click();
+        setTheme.click();
+        beachPic.click();
+        saveBtn.click();
         LOGGER.info("set theme");
     }
 }
