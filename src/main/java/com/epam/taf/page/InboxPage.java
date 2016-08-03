@@ -9,7 +9,6 @@ import org.openqa.selenium.support.PageFactory;
 
 public class InboxPage extends BasePage{
     private static final Logger LOGGER = LogManager.getRootLogger();
-    private WebDriver driver;
 
     @FindBy(xpath = "//div[@role='menu']")
     private WebElement settingsMenuList;

@@ -5,12 +5,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class ForwardTest extends BaseTest{
-    private BasePage page;
-
-    @BeforeClass
-    public void setUp(){
-        page = new BasePage(driver);
-    }
 
     @Test
     public void forwardTst(){
