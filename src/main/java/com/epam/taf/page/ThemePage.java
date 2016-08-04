@@ -5,7 +5,6 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 public class ThemePage extends BasePage {
     private static final Logger LOGGER = LogManager.getRootLogger();
@@ -26,16 +25,16 @@ public class ThemePage extends BasePage {
         super(driver);
     }
 
-    public void setTheme(){
+    public void setTheme() {
         setTheme.click();
         beachPicFirstLocation.click();
         saveBtn.click();
         LOGGER.info("set theme");
     }
 
-    public boolean isThemeSet(){
+    public boolean isThemeSet() {
         boolean result = false;
-        if (beachPicSecondLocation.isEnabled()){
+        if (beachPicSecondLocation.isEnabled()) {
             result = true;
         }
         return result;

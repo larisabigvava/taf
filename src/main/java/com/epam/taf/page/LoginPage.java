@@ -1,13 +1,13 @@
 package com.epam.taf.page;
 
+import com.epam.taf.businessobject.User;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 public class LoginPage extends BasePage{
     private static final Logger LOGGER = LogManager.getRootLogger();
@@ -38,16 +38,16 @@ public class LoginPage extends BasePage{
         super(driver);
     }
 
-    public void login(String login, String password){
-        setLogin(login);
+    public void login(User user){
+        setLogin(user.getLogin());
         submitLogin();
-        setPassword(password);
+        setPassword(user.getPassword());
         setNotRemember();
         submitPassword();
         WebDriverWait wait = new WebDriverWait(this.driver, 10);
         wait.until(ExpectedConditions.visibilityOf(googleApps));
         goToInbox();
-        LOGGER.info("login as "+login);
+        LOGGER.info("login as "+user.getLogin());
     }
 
     private void setNotRemember(){

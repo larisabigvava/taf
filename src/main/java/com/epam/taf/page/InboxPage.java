@@ -1,11 +1,11 @@
 package com.epam.taf.page;
 
+import com.epam.taf.businessobject.Message;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -78,12 +78,12 @@ public class InboxPage extends BasePage{
         btnSend.click();
     }
 
-    public void sendMessage(String recipient, String text){
+    public void sendMessage(Message message){
         clickCompose();
-        setRecipient(recipient);
-        setText(text);
+        setRecipient(message.getRecipient());
+        setText(message.getText());
         send();
-        LOGGER.info("send message to user "+recipient);
+        LOGGER.info("send message to user "+message.getRecipient());
     }
 
     public SettingsPage goToSettingsPage(){

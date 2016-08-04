@@ -3,11 +3,7 @@ package com.epam.taf.page;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-/**
- * Created by Seagull on 04.08.2016.
- */
 public class GeneralSettingsPage extends BasePage{
 
     @FindBy(xpath = "//div[@aria-label='Signature']")
