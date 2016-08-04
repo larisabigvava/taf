@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 public class ThemePage extends BasePage {
     private static final Logger LOGGER = LogManager.getRootLogger();
 
-    @FindBy(xpath = "//div/a[contains(text(), 'Set Theme.')]")
+    @FindBy(xpath = "//div/a[text()='Set Theme.']")
     private WebElement setTheme;
 
     @FindBy(xpath = "//div[@bgid='custom-10' and @aria-label='By: Romain Guy']")
@@ -19,7 +19,7 @@ public class ThemePage extends BasePage {
     @FindBy(xpath = "//div[@bgid='custom-0' and @aria-label='By: Romain Guy']")
     private WebElement beachPicSecondLocation;
 
-    @FindBy(xpath = "//div[contains(text(), 'Save')]")
+    @FindBy(xpath = "//div[text()='Save']")
     private WebElement saveBtn;
 
     public ThemePage(WebDriver driver) {

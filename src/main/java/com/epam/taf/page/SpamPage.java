@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 public class SpamPage extends BasePage {
     private static final Logger LOGGER = LogManager.getRootLogger();
 
-    @FindBy(xpath = "//div/span/a[contains(text(),'Spam (']")
+    @FindBy(xpath = "//div/span/a[contains(text(),'Spam (')]")
     private WebElement fullSpam;
 
     public SpamPage(WebDriver driver) {

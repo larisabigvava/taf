@@ -6,14 +6,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LogoutPage extends BasePage{
     private static final Logger LOGGER = LogManager.getRootLogger();
 
-    @FindBy(xpath = "//span[@class='gb_3a gbii']")
+    @FindBy(xpath = "//a[contains(@title, 'Google Account:')]/span")
     private WebElement accountIcon;
 
-    @FindBy(xpath = "//a[contains(text(), 'Sign out']")
+    @FindBy(xpath = "//a[text()='Sign out']")
     private WebElement btnLogout;
 
     @FindBy(xpath = "//a[@id='account-chooser-link']")
@@ -27,10 +29,14 @@ public class LogoutPage extends BasePage{
     }
 
     private void clickSignInWithADifferentAcc(){
+        WebDriverWait wait = new WebDriverWait(driver,5);
+        wait.until(ExpectedConditions.visibilityOf(btnSignInWithADiffAcc));
         btnSignInWithADiffAcc.click();
     }
 
     private void clickAddAccount(){
+        WebDriverWait wait = new WebDriverWait(driver,5);
+        wait.until(ExpectedConditions.visibilityOf(btnAddAccount));
         btnAddAccount.click();
     }
 
@@ -47,6 +53,8 @@ public class LogoutPage extends BasePage{
     }
 
     private void clickLogout(){
+        WebDriverWait wait = new WebDriverWait(driver, 5);
+        wait.until(ExpectedConditions.visibilityOf(btnLogout));
         btnLogout.click();
     }
 }

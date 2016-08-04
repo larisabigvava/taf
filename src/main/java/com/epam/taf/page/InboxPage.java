@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class InboxPage extends BasePage{
     private static final Logger LOGGER = LogManager.getRootLogger();
@@ -16,10 +18,10 @@ public class InboxPage extends BasePage{
     @FindBy(xpath = "//div[@aria-label='Settings']")
     private WebElement settingsIcon;
 
-    @FindBy(xpath = "//[contains(text(), 'Settings')]")
+    @FindBy(xpath = "//[text()='Settings']")
     private WebElement settings;
 
-    @FindBy(xpath = "//*[contains(text(), 'COMPOSE')]")
+    @FindBy(xpath = "//div[text()='COMPOSE']")
     private WebElement btnCompose;
 
     @FindBy(xpath = "//textarea[@name='to']")
@@ -28,7 +30,7 @@ public class InboxPage extends BasePage{
     @FindBy(xpath = "//div[@role='textbox']")
     private WebElement textPath;
 
-    @FindBy(xpath = "//*[contains(text(), 'Send')]")
+    @FindBy(xpath = "//div[text()='Send']")
     private WebElement btnSend;
 
     @FindBy(xpath = "//span[@role = 'checkbox']/div[@role='presentation']")
@@ -37,7 +39,7 @@ public class InboxPage extends BasePage{
     @FindBy(xpath = "//div[@aria-label='Report spam']")
     private WebElement btnSpam;
 
-    @FindBy(xpath = "//a[@title='Inbox ('")
+    @FindBy(xpath = "//a[contains(text(), 'Inbox (')]")
     private WebElement inbox;
 
     public InboxPage(WebDriver driver) {
@@ -59,6 +61,8 @@ public class InboxPage extends BasePage{
     }
 
     private void clickCompose(){
+        WebDriverWait wait = new WebDriverWait(driver,10);
+        wait.until(ExpectedConditions.visibilityOf(btnCompose));
         btnCompose.click();
     }
 

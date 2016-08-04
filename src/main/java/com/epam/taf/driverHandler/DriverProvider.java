@@ -1,5 +1,6 @@
-package com.epam.taf.util;
+package com.epam.taf.driverHandler;
 
+import com.epam.taf.util.DriverType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;

@@ -12,13 +12,13 @@ import org.apache.logging.log4j.Logger;
 public class LoginPage extends BasePage{
     private static final Logger LOGGER = LogManager.getRootLogger();
 
-    @FindBy(xpath = "//*[@id='Email']")
+    @FindBy(xpath = "//input[@id='Email']")
     private WebElement inputLogin;
 
-    @FindBy(xpath = "//*[@id='Passwd']")
+    @FindBy(xpath = "//input[@id='Passwd']")
     private WebElement inputPassword;
 
-    @FindBy(xpath = "//*[@id='next']")
+    @FindBy(xpath = "//input[@id='next']")
     private WebElement btnNextLogin;
 
     @FindBy(xpath = "//*[@id='signIn']")
@@ -27,8 +27,11 @@ public class LoginPage extends BasePage{
     @FindBy(xpath = "//a[@title='Google apps']")
     private WebElement googleApps;
 
-    @FindBy(xpath = "//*[@id='gb23']/span[1]")
+    @FindBy(xpath = "//a/span[text()='Gmail']")
     private WebElement gmailApp;
+
+    @FindBy(xpath = "//label[@class='remember']/input[@id='PersistentCookie']")
+    private WebElement rememberInput;
 
 
     public LoginPage(WebDriver driver) {
@@ -39,6 +42,7 @@ public class LoginPage extends BasePage{
         setLogin(login);
         submitLogin();
         setPassword(password);
+        setNotRemember();
         submitPassword();
         WebDriverWait wait = new WebDriverWait(this.driver, 10);
         wait.until(ExpectedConditions.visibilityOf(googleApps));
@@ -46,11 +50,17 @@ public class LoginPage extends BasePage{
         LOGGER.info("login as "+login);
     }
 
+    private void setNotRemember(){
+        rememberInput.click();
+    }
+
     private void setLogin(String login){
         inputLogin.sendKeys(login);
     }
 
     private void setPassword(String password){
+        WebDriverWait wait = new WebDriverWait(driver, 5);
+        wait.until(ExpectedConditions.visibilityOf(inputPassword));
         inputPassword.sendKeys(password);
     }
 
@@ -63,6 +73,8 @@ public class LoginPage extends BasePage{
     }
 
     public InboxPage goToInbox(){
+        WebDriverWait wait = new WebDriverWait(driver, 5);
+        wait.until(ExpectedConditions.visibilityOf(googleApps));
         googleApps.click();
         gmailApp.click();
         return new InboxPage(this.driver);
