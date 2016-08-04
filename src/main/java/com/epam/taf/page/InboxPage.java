@@ -37,6 +37,9 @@ public class InboxPage extends BasePage{
     @FindBy(xpath = "//div[@aria-label='Report spam']")
     private WebElement btnSpam;
 
+    @FindBy(xpath = "//a[@title='Inbox ('")
+    private WebElement inbox;
+
     public InboxPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(this.driver, this);
@@ -98,6 +101,24 @@ public class InboxPage extends BasePage{
         return result;
     }
 
+    public boolean isConfirmationLetterReceived(){
+        boolean result = false;
+        if (inbox.isDisplayed()){
+            result = true;
+        }
+        return result;
+    }
+
+    public boolean isSignatureSet(String recipient, String letter){
+        boolean result = false;
+        clickCompose();
+        setRecipient(recipient);
+        setText(letter);
+        if (textPath.getText().contains("--")){
+            result = true;
+        }
+        return result;
+    }
 
 
 }

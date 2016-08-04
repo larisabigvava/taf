@@ -1,7 +1,5 @@
 package com.epam.taf;
 
-import com.epam.taf.page.LoginPage;
-import com.epam.taf.page.LogoutPage;
 import org.testng.Assert;
 import org.testng.annotations.*;
 

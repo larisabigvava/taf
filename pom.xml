@@ -20,11 +20,12 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.19.1</version>
                 <configuration>
+                    <testFailureIgnore>true</testFailureIgnore>
                     <suiteXmlFiles>
                         <suiteXmlFile>src/main/java/com/epam/taf/resources/testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <systemPropertyVariables>
-                        <propertyName>driver</propertyName>
+                        <propertyName>browser</propertyName>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>

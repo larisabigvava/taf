@@ -16,6 +16,9 @@ public class SettingsPage extends BasePage {
     @FindBy(xpath = "//div/a[contains(text(), 'Themes']")
     private WebElement theme;
 
+    @FindBy(xpath = "//a[contains(text(),'General']")
+    private WebElement general;
+
     public SettingsPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(this.driver, this);
@@ -29,6 +32,11 @@ public class SettingsPage extends BasePage {
     public ForwardingPage goToForwarding(){
         forwarding.click();
         return new ForwardingPage(this.driver);
+    }
+
+    public GeneralSettingsPage goToGeneralSettings(){
+        general.click();
+        return new GeneralSettingsPage(this.driver);
     }
 
 

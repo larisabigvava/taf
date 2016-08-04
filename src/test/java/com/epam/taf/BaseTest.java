@@ -20,7 +20,7 @@ public class BaseTest {
 
     @BeforeClass
     public void setUp() {
-        driver = DriverProvider.getDriver(System.getProperty("driver"));
+        driver = DriverProvider.getDriver(System.getProperty("browser"));
         page = new BasePage(driver);
         logoutPage = new LogoutPage(driver);
     }

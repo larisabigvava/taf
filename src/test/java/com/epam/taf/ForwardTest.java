@@ -1,7 +1,6 @@
 package com.epam.taf;
 
-import com.epam.taf.page.BasePage;
-import org.testng.annotations.BeforeClass;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class ForwardTest extends BaseTest{
@@ -14,5 +13,7 @@ public class ForwardTest extends BaseTest{
         logoutPage.logout();
         page.getLoginPage().login(LOGIN3, PASSWORD);
         //TODO confirmation and asserts
+        page.getLoginPage().login(LOGIN2,PASSWORD);
+        Assert.assertTrue(page.getLoginPage().goToInbox().isConfirmationLetterReceived());
     }
 }

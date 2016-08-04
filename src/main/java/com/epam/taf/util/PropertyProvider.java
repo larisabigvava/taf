@@ -10,7 +10,7 @@ public class PropertyProvider {
 
     private static Properties loadProperties(String fileName) {
         String filePath = FilenameUtils.separatorsToSystem(
-                new File("").getAbsolutePath() + "\\src\\main\\java\\com\\epam\\taf\\resources\\"+ fileName + ".util");
+                new File("").getAbsolutePath() + "\\src\\main\\java\\com\\epam\\taf\\resources\\"+ fileName + ".properties");
         File localFile = new File(filePath);
         Properties properties = new Properties();
         if (!localFile.isDirectory()) {

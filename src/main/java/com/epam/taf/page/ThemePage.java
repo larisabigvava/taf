@@ -13,8 +13,11 @@ public class ThemePage extends BasePage {
     @FindBy(xpath = "//div/a[contains(text(), 'Set Theme.')]")
     private WebElement setTheme;
 
-    @FindBy(xpath = "//div[@bgid='custom-10']")
-    private WebElement beachPic;
+    @FindBy(xpath = "//div[@bgid='custom-10' and @aria-label='By: Romain Guy']")
+    private WebElement beachPicFirstLocation;
+
+    @FindBy(xpath = "//div[@bgid='custom-0' and @aria-label='By: Romain Guy']")
+    private WebElement beachPicSecondLocation;
 
     @FindBy(xpath = "//div[contains(text(), 'Save')]")
     private WebElement saveBtn;
@@ -26,8 +29,16 @@ public class ThemePage extends BasePage {
 
     public void setTheme(){
         setTheme.click();
-        beachPic.click();
+        beachPicFirstLocation.click();
         saveBtn.click();
         LOGGER.info("set theme");
+    }
+
+    public boolean isThemeSet(){
+        boolean result = false;
+        if (beachPicSecondLocation.isEnabled()){
+            result = true;
+        }
+        return result;
     }
 }
