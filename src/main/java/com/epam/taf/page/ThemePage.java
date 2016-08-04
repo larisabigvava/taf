@@ -24,7 +24,6 @@ public class ThemePage extends BasePage {
 
     public ThemePage(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(this.driver, this);
     }
 
     public void setTheme(){

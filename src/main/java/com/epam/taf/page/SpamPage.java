@@ -15,7 +15,6 @@ public class SpamPage extends BasePage {
 
     public SpamPage(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(this.driver, this);
     }
 
     public boolean isSpamHasLetter(){

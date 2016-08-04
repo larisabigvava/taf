@@ -16,12 +16,14 @@ public class BaseTest {
     protected final String LOGIN3 = PropertyProvider.getProperty("accounts", "user3Login");
     protected final String PASSWORD = PropertyProvider.getProperty("accounts", "password");
     protected BasePage page;
+    protected LoginPage loginPage;
     protected LogoutPage logoutPage;
 
     @BeforeClass
     public void setUp() {
         driver = DriverProvider.getDriver(System.getProperty("browser"));
         page = new BasePage(driver);
+        loginPage = page.getLoginPage();
         logoutPage = new LogoutPage(driver);
     }
 

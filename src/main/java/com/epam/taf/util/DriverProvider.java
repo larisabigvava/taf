@@ -9,8 +9,14 @@ public class DriverProvider {
     public static WebDriver driver = null;
 
     public static WebDriver getDriver(String driverType){
-        DriverType type = DriverType.valueOf(driverType);
         if (driver == null){
+            DriverType type;
+            try {
+                type = DriverType.valueOf(driverType);
+            }
+            catch(IllegalArgumentException|NullPointerException e){
+                type = DriverType.FirefoxDriver;
+            }
             switch (type){
                 case ChromeDriver:
                     driver = new ChromeDriver();

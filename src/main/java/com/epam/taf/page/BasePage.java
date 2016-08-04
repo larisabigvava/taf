@@ -1,17 +1,19 @@
 package com.epam.taf.page;
 
+import com.epam.taf.util.PropertyProvider;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 
 public class BasePage {
     protected WebDriver driver;
-    private LoginPage loginPage;
+
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
-        loginPage = new LoginPage(driver);
+        PageFactory.initElements(this.driver, this);
     }
 
     public LoginPage getLoginPage() {
-        return loginPage;
+        return new LoginPage(driver);
     }
 }

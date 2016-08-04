@@ -22,7 +22,6 @@ public class ForwardingPage extends BasePage {
 
     public ForwardingPage(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(this.driver, this);
     }
 
     public void addForwardingAddress(String address){

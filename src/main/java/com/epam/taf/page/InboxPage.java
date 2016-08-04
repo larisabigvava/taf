@@ -42,7 +42,6 @@ public class InboxPage extends BasePage{
 
     public InboxPage(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(this.driver, this);
     }
 
     private void checkLetters(){

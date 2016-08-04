@@ -18,7 +18,6 @@ public class GeneralSettingsPage extends BasePage{
 
     public GeneralSettingsPage(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(this.driver, this);
     }
 
     public InboxPage setSignature(String sign){

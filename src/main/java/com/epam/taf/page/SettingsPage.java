@@ -21,7 +21,6 @@ public class SettingsPage extends BasePage {
 
     public SettingsPage(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(this.driver, this);
     }
 
     public ThemePage goToThemes(){

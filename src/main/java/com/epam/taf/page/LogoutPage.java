@@ -24,7 +24,6 @@ public class LogoutPage extends BasePage{
 
     public LogoutPage(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(this.driver, this);
     }
 
     private void clickSignInWithADifferentAcc(){

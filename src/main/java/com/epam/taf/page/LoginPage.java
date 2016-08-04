@@ -33,7 +33,6 @@ public class LoginPage extends BasePage{
 
     public LoginPage(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(this.driver, this);
     }
 
     public void login(String login, String password){
