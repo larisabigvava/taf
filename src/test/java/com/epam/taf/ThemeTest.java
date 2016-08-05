@@ -1,10 +1,7 @@
 package com.epam.taf;
 
-import com.epam.taf.businessobject.Message;
 import com.epam.taf.businessobject.User;
-import com.epam.taf.page.LoginPage;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 

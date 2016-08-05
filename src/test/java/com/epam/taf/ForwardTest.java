@@ -1,6 +1,5 @@
 package com.epam.taf;
 
-import com.epam.taf.businessobject.Message;
 import com.epam.taf.businessobject.User;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
